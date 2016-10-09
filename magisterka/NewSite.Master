@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="NewSite.master.cs" Inherits="NewSiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>BioBank</title>
+    <asp:PlaceHolder runat="server">      
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" /> 
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager runat="server">
+        <Scripts>
+            <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
+            <%--Framework scripts--%>
+            <asp:ScriptReference Name="MsAjaxBundle" />
+            <asp:ScriptReference Name="jquery" />
+            <asp:ScriptReference Name="jquery.ui.combined" />
+            <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+            <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+            <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+            <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+            <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+            <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+            <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+            <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+            <asp:ScriptReference Name="WebFormsBundle" />
+            <%--Site scripts--%>
+
+        </Scripts>
+    </asp:ScriptManager>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-right">
+                <table class="table">
+                    <tr>
+                        <td><asp:Button ID="btnKonto" runat="server" OnClick="KontoKlik" Text="Konto" Font-Size="Larger" Width="120px" BorderStyle="None" ForeColor="#003366" /></td>
+                        <td><asp:Button ID="btnWyloguj" runat="server" OnClick="WylogujKlik" Text="Wyloguj" Font-Size="Larger" Width="110px" BorderStyle="None" ForeColor="#003366"/></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center"><a runat="server" href="~/OStronie">O stronie</a></td>
+                        <td style="text-align: center"><a runat="server" href="~/Kontakt">Kontakt</a></td>
+                    </tr>
+                </table>
+            </div>
+                    <asp:Image runat="server" ImageURL="~/Images/logo_nowe2.png" Height="75px" Width="274px" ImageAlign="Baseline"></asp:Image>              
+        </div>
+    </header>
+    <div id="body">
+        <table>
+            <tr>
+                <td style="vertical-align:top; padding-top:5em"> 
+                    <asp:Button ID="ListaProgramow" runat="server" BorderStyle="Inset" Font-Bold="True" Font-Size="Larger" Height="60px" OnClick="ListaProgramow_OnClick" Text="Lista programów" Width="300px" BackColor="#ccccff" />
+                    <br />
+                    <asp:Button ID="ListaZmiennych" runat="server" BorderStyle="Inset" Font-Bold="True" Font-Size="Larger" Height="60px" OnClick="ListaZmiennych_OnClick" Text="Lista zmiennych" Width="300px" BackColor="#ccccff" />
+                    <br />
+                    <asp:Button ID="ListaMaterialow" runat="server" BorderStyle="Inset" Font-Bold="True" Font-Size="Larger" Height="60px" OnClick="ListaMaterialow_OnClick" Text="Lista materiałów" Width="300px" BackColor="#ccccff" />
+                </td>
+                <td>
+                    <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                    <%--<tu domyslnie wklada dziubdziaka, więc zakomentowane musi byc>--%>
+                    <%--<section class="content-wrapper main-content clear-fix">--%>
+                    <%--</section>--%>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    
+   <%--<footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; - My ASP.NET Application
+                </p>
+            </div>
+        </div>
+    </footer>--%>
+    </form>
+
+</body>
+</html>
