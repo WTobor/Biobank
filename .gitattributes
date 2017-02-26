@@ -64,3 +64,4 @@
 
 magisterka/Scripts/* linguist-vendored
 magisterka/magisterka/Scripts/* linguist-vendored
+*.cs linguist-language=csharp
